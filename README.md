@@ -2,7 +2,7 @@
 
 
 
-!\[ORK Banner](assets/ork-banner.png)
+![ORK Banner](assets/ork-banner.png)
 
 
 
