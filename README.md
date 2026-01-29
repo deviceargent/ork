@@ -4,7 +4,8 @@
 
 ![ORK Banner](assets/ork-banner.png)
 
-[![Download ORK ](https://img.shields.io/badge/Descargar-ORK-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deviceargent/ork/releases/download/1.0.0/ork.msi)
+### Make sure to download the .msi file and run it to install ORK helper
+ [![Download ORK ](https://img.shields.io/badge/Download-ORK-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deviceargent/ork/releases/download/1.0.0/ork.msi)
 
 
 ORK is a lightweight Windows + browser integration tool that lets you instantly open any Windows Registry key directly in Regedit from your browser.
