@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Jump to Regedit",
+  "version": "1.0",
+  "description": "Abre claves de registro seleccionadas en Regedit",
+  "permissions": [
+    "contextMenus",
+    "nativeMessaging"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}
