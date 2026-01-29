@@ -2,6 +2,10 @@
 
 
 
+!\[ORK Banner](assets/ork-banner.png)
+
+
+
 ORK is a lightweight Windows + browser integration tool that lets you instantly open any Windows Registry key directly in Regedit from your browser.
 
 
@@ -138,11 +142,11 @@ The native host sets Regedit’s LastKey and launches Regedit automatically.
 
 📁 Repository structure
 
-/extension     → Browser extension source  
+/extension     → Browser extension source
 
-/native-host   → C# native messaging host  
+/native-host   → C# native messaging host
 
-/installer     → MSI / WiX installer files  
+/installer     → MSI / WiX installer files
 
 
 
