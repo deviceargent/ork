@@ -1,35 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
+using System;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
-using Microsoft.Win32;
+using Microsoft.Win32; // Asegúrate de tener la referencia
 
-namespace RegOpenerHost;
+namespace ORK
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try 
+            {
+                using (Stream stdin = Console.OpenStandardInput())
+                {
+                    byte[] lengthBytes = new byte[4];
+                    int read = stdin.Read(lengthBytes, 0, 4);
+                    if (read < 4) return;
 
-class Program {
-    static void Main() {
-        try {
-            Stream stdin = Console.OpenStandardInput();
-            byte[] lenBytes = new byte[4];
-            int read = stdin.Read(lenBytes, 0, 4);
-            if (read < 4) return;
-            
-            int len = BitConverter.ToInt32(lenBytes, 0);
-            byte[] buffer = new byte[len];
-            stdin.Read(buffer, 0, len);
-            
-            var msg = JsonSerializer.Deserialize<Dictionary<string, string>>(buffer);
+                    int length = BitConverter.ToInt32(lengthBytes, 0);
+                    byte[] buffer = new byte[length];
+                    int totalRead = 0;
+                    
+                    // Bucle para asegurar que leemos el mensaje completo
+                    while (totalRead < length)
+                    {
+                        int r = stdin.Read(buffer, totalRead, length - totalRead);
+                        if (r <= 0) break;
+                        totalRead += r;
+                    }
 
-            if (msg != null && msg.TryGetValue("path", out var regPath)) {
-                string path = regPath.Trim().Replace("/", "\\");
-                if (!path.StartsWith(@"Computer\")) path = @"Computer\" + path;
-                
-                Registry.SetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit", "LastKey", path);
-                
-                foreach (var p in Process.GetProcessesByName("regedit")) p.Kill();
-                Process.Start("regedit.exe");
+                    var message = JsonSerializer.Deserialize<RegistryMessage>(buffer);
+                    if (message != null && !string.IsNullOrEmpty(message.path))
+                    {
+                        OpenRegedit(message.path.Trim());
+                    }
+                }
             }
-        } catch { }
+            catch { /* Evita popups de error en el host nativo */ }
+        }
+
+        static void OpenRegedit(string path)
+        {
+            string lastKeyPath = @"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit";
+            
+            // Usamos Registry.SetValue de Microsoft.Win32
+            Registry.SetValue(lastKeyPath, "LastKey", path);
+            
+            ProcessStartInfo startInfo = new ProcessStartInfo
+            {
+                FileName = "regedit.exe",
+                UseShellExecute = true // Necesario en .NET 8 para archivos del sistema
+            };
+            
+            Process.Start(startInfo);
+        }
     }
+
+    public class RegistryMessage { public string path { get; set; } }
 }
