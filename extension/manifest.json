@@ -1,16 +1,19 @@
 {
   "manifest_version": 3,
-  "name": "Jump to Regedit",
+  "name": "ORK - Registry Jumper",
   "version": "1.0",
-  "description": "Abre claves de registro seleccionadas en Regedit",
+  "default_locale": "en",
   "permissions": [
     "contextMenus",
-    "nativeMessaging"
+    "nativeMessaging",
+    "notifications"
   ],
   "background": {
     "service_worker": "background.js"
   },
   "icons": {
-    "128": "icon.png"
+    "16": "assets/icon16.png",
+    "48": "assets/icon48.png",
+    "128": "assets/icon128.png"
   }
 }
