@@ -2,7 +2,7 @@
 
 ![ORK Banner](assets/ork-banner.png)
 
-### Make sure to download the .msi file and run it to install the ORK helper  
+### Make sure to download the latest installer file and run it to install the ORK helper  
 [![Download ORK](https://img.shields.io/badge/Download-ORK-blue?style=for-the-badge&logo=github&logoColor=white)](https://github.com/deviceargent/ork/releases/latest)   &emsp;   👈
 
 ---
