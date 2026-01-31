@@ -1,0 +1,14 @@
+{
+  "menuTitle": {
+    "message": "\"$1\"(으)로 이동",
+    "placeholders": {
+      "selection": {
+        "content": "$1"
+      }
+    }
+  },
+  "hostError": {
+    "message": "ORK Host를 찾을 수 없습니다. 다음 주소에서 ork.msi를 다운로드하여 설치하세요: https://github.com/deviceargent/ork/releases/latest",
+    "description": "Error shown when the native host is missing"
+  }
+}

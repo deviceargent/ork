@@ -1,0 +1,14 @@
+{
+  "menuTitle": {
+    "message": "跳轉到 \"$1\"",
+    "placeholders": {
+      "selection": {
+        "content": "$1"
+      }
+    }
+  },
+  "hostError": {
+    "message": "找不到 ORK Host。請從以下位置下載並安裝 ork.msi：https://github.com/deviceargent/ork/releases/latest",
+    "description": "Error shown when the native host is missing"
+  }
+}

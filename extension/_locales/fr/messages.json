@@ -1,0 +1,14 @@
+{
+  "menuTitle": {
+    "message": "Aller à \"$1\"",
+    "placeholders": {
+      "selection": {
+        "content": "$1"
+      }
+    }
+  },
+  "hostError": {
+    "message": "ORK Host introuvable. Téléchargez et installez ork.msi depuis : https://github.com/deviceargent/ork/releases/latest",
+    "description": "Error shown when the native host is missing"
+  }
+}

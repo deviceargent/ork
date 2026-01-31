@@ -1,0 +1,14 @@
+{
+  "menuTitle": {
+    "message": "Springe zu \"$1\"",
+    "placeholders": {
+      "selection": {
+        "content": "$1"
+      }
+    }
+  },
+  "hostError": {
+    "message": "ORK Host nicht gefunden. Lade ork.msi von folgender Adresse herunter und installiere es: https://github.com/deviceargent/ork/releases/latest",
+    "description": "Error shown when the native host is missing"
+  }
+}
