@@ -51,7 +51,7 @@ From Edge Add-ons / Chrome Web Store (link coming soon)
 ### 2️⃣ Install the Native Host (Windows)
 
 • Download the latest installer from **Releases**  
-• Run the `ork.msi` installer  
+• Run the `ORK_setup.exe` installer  
 • Make sure you have **.NET 8 Runtime** installed  
 
 👉 https://dotnet.microsoft.com/download/dotnet/8.0
@@ -88,9 +88,10 @@ The native host sets Regedit’s **LastKey** and launches Regedit automatically.
 
 MIT
 
+&ensp;
 
 👤 <ins>Author</ins>
 
-DeviceArgent / Miguel Okstein 
+DeviceArgent / Miguel Okstein  
 
 ![ArgentinaFlorkGIF](https://github.com/user-attachments/assets/1564ac6d-7b0b-4c0b-8f82-5bd3a9b69edb)
