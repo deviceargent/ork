@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ORK - Registry Jumper",
-  "version": "1.0",
+  "version": "1.0.2",
   "default_locale": "en",
   "permissions": [
     "contextMenus",
@@ -10,6 +10,14 @@
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "action": {
+    "default_icon": {
+      "16": "assets/icon16.png",
+      "48": "assets/icon48.png",
+      "128": "assets/icon128.png"
+    },
+    "default_title": "ORK - Registry Jumper"
   },
   "icons": {
     "16": "assets/icon16.png",
