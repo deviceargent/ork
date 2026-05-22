@@ -92,6 +92,6 @@ MIT
 
 👤 <ins>Author</ins>
 
-DeviceArgent / Miguel Okstein  
+DeviceArgent 
 
 ![ArgentinaFlorkGIF](https://github.com/user-attachments/assets/1564ac6d-7b0b-4c0b-8f82-5bd3a9b69edb)
