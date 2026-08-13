@@ -54,8 +54,8 @@ From Edge Add-ons / Chrome Web Store (link coming soon)
 • Run the `ORK_setup.exe` installer  
 • Make sure you have **.NET 8 Runtime** installed  
 
-👉 https://dotnet.microsoft.com/download/dotnet/8.0
-
+👉 X64 https://aka.ms/dotnet-core-applaunch?framework=Microsoft.NETCore.App&framework_version=8.0.0&arch=x64&rid=win-x64&os=win10&gui=true
+👉 X86 https://dotnet.microsoft.com/es-es/download/dotnet/thank-you/runtime-desktop-8.0.30-windows-x86-installer
 &ensp;
 
 ⚙️ <ins>Requirements</ins>
