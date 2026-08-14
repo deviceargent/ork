@@ -1,6 +1,9 @@
 name: Build test Native Messaging Host
 
 on:
+  push:
+    branches:
+      - 'test/notification-icon-unpacked'
   workflow_dispatch:
 
 jobs:
