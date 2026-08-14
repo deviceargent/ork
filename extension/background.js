@@ -8,9 +8,9 @@ function getNativePort() {
       if (response.status === "ok") {
         chrome.notifications.create({
           type: 'basic',
-          iconUrl: chrome.runtime.getURL('assets/icon128.png'),
-          title: ' ',
-          message: ' ',
+          iconUrl: 'assets/icon128.png',
+          title: 'ARGHHHH',
+          message: 'Regedit opened successfully!',
           priority: 2
         });
         console.log("Éxito confirmado por el host nativo.");
