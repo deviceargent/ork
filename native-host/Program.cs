@@ -5,6 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text.Json;
 using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.Win32;
+using Windows.UI.Notifications;
 
 namespace ORK
 {
@@ -88,8 +89,6 @@ namespace ORK
             {
                 string iconPath = Path.Combine(AppContext.BaseDirectory, "ork-icon.png");
 
-                ToastNotificationManagerCompat.Aumid = "ORK.NativeHost";
-
                 var builder = new ToastContentBuilder()
                     .AddText("ARGGGGGGG!")
                     .AddText("Regedit opened successfully!");
@@ -106,7 +105,7 @@ namespace ORK
 
                 var notifier = ToastNotificationManagerCompat.CreateToastNotifier();
                 notifier.Show(new ToastNotification(xml));
-                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] Show() OK, AUMID={ToastNotificationManagerCompat.Aumid}\n");
+                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] Show() OK, AUMID={Environment.ProcessId}\n");
             }
             catch (Exception ex)
             {
