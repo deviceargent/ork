@@ -1,0 +1,32 @@
+name: Build Installer (pre-release-testing)
+
+on:
+  push:
+    branches: [pre-release-testing]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish native host (win-x64)
+        run: dotnet publish native-host/RegOpenerHost.csproj -c Release -r win-x64 -p:PublishReadyToRun=true
+
+      - name: Compile installer with Inno Setup
+        uses: jrsoftware/iscc@stable
+        with:
+          definitionFiles: installer/install_script.iss
+
+      - name: Upload installer artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ORK_Setup
+          path: installer/ORK_Setup.exe
