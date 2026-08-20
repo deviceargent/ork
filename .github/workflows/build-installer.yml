@@ -21,9 +21,9 @@ jobs:
         run: dotnet publish native-host/RegOpenerHost.csproj -c Release -r win-x64 -p:PublishReadyToRun=true
 
       - name: Compile installer with Inno Setup
-        uses: jrsoftware/iscc@stable
+        uses: Minionguyjpro/Inno-Setup-Action@v1.2.2
         with:
-          definitionFiles: installer/install_script.iss
+          path: installer/install_script.iss
 
       - name: Upload installer artifact
         uses: actions/upload-artifact@v4
