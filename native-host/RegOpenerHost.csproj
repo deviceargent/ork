@@ -19,5 +19,7 @@
   <ItemGroup>
     <!-- Ícono para el toast, copiado junto al ejecutable -->
     <None Include="..\extension\assets\icon128.png" Link="ork-icon.png" CopyToOutputDirectory="PreserveNewest" />
+    <!-- Banner 2:1 para el inline image del toast -->
+    <None Include="..\extension\assets\ork-hero.png" Link="ork-hero.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

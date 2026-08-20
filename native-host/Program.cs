@@ -93,6 +93,7 @@ namespace ORK
             try
             {
                 string iconPath = Path.Combine(AppContext.BaseDirectory, "ork-icon.png");
+                string heroPath = Path.Combine(AppContext.BaseDirectory, "ork-hero.png");
 
                 var builder = new ToastContentBuilder()
                     .AddText("ARGGGGGGG!")
@@ -103,6 +104,12 @@ namespace ORK
                     builder.AddAppLogoOverride(
                         new Uri("file:///" + iconPath.Replace('\\', '/')),
                         ToastGenericAppLogoCrop.Circle);
+                }
+
+                if (File.Exists(heroPath))
+                {
+                    builder.AddInlineImage(
+                        new Uri("file:///" + heroPath.Replace('\\', '/')));
                 }
 
                 var xml = builder.GetXml();
