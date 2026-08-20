@@ -96,8 +96,6 @@ namespace ORK
                     builder.AddAppLogoOverride(
                         new Uri("file:///" + iconPath.Replace('\\', '/')),
                         ToastGenericAppLogoCrop.Circle);
-                    builder.AddInlineImage(
-                        new Uri("file:///" + iconPath.Replace('\\', '/')) );
                 }
 
                 builder.Show();
