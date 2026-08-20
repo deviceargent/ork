@@ -29,6 +29,10 @@ Source: "..\publish\ork-icon.png"; DestDir: "{app}"; Flags: ignoreversion
 Root: HKCU; Subkey: "Software\Google\Chrome\NativeMessagingHosts\com.microsoft.ork"; ValueType: String; ValueData: "{app}\com.microsoft.ork.json"; Flags: uninsdeletekey 
 Root: HKCU; Subkey: "Software\Microsoft\Edge\NativeMessagingHosts\com.microsoft.ork"; ValueType: String; ValueData: "{app}\com.microsoft.ork.json"; Flags: uninsdeletekey 
 
+[Icons]
+; Shortcut con AUMID: requerido para que los toasts de apps win32 no empaquetadas se muestren
+Name: "{autoprograms}\ORK Registry Jumper"; Filename: "{app}\Ork.exe"; WorkingDir: "{app}"; IconFilename: "{app}\ork-icon.png"; AppUserModelID: "ORK.NativeHost"; Flags: createonlyifdoesntexist 
+
 [UninstallDelete]
 Type: dirifempty; Name: "{app}"; 
 

@@ -83,9 +83,12 @@ namespace ORK
 
         static void ShowSuccessNotification()
         {
+            string logPath = Path.Combine(Path.GetTempPath(), "ork-toast.log");
             try
             {
                 string iconPath = Path.Combine(AppContext.BaseDirectory, "ork-icon.png");
+
+                DesktopNotificationManagerCompat.Aumid = "ORK.NativeHost";
 
                 var builder = new ToastContentBuilder()
                     .AddText("ARGGGGGGG!")
@@ -98,11 +101,16 @@ namespace ORK
                         ToastGenericAppLogoCrop.Circle);
                 }
 
-                builder.Show();
+                var xml = builder.GetXml();
+                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] XML: {xml.GetXml()}\n");
+
+                var notifier = DesktopNotificationManagerCompat.CreateToastNotifier();
+                notifier.Show(new ToastNotification(xml));
+                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] Show() OK, AUMID={DesktopNotificationManagerCompat.Aumid}\n");
             }
-            catch
+            catch (Exception ex)
             {
-                // Si el toast no se puede mostrar, no romper el host
+                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] ERROR: {ex}\n");
             }
         }
 
