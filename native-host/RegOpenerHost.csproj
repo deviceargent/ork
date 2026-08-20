@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net8.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
     <RootNamespace>ORK</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -11,5 +11,12 @@
   <ItemGroup>
     <!-- Esta referencia es vital para acceder al Registro de Windows -->
     <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
+    <!-- Notificaciones modernas (toasts) para apps Win32 no empaquetadas -->
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Ícono para el toast, copiado junto al ejecutable -->
+    <None Include="..\extension\assets\icon128.png" Link="ork-icon.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

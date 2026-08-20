@@ -5,8 +5,7 @@
   "default_locale": "en",
   "permissions": [
     "contextMenus",
-    "nativeMessaging",
-    "notifications"
+    "nativeMessaging"
   ],
   "background": {
     "service_worker": "background.js"

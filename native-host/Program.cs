@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
+using Microsoft.Toolkit.Uwp.Notifications;
 using Microsoft.Win32;
 
 namespace ORK
@@ -50,6 +51,7 @@ namespace ORK
                         if (message?.path != null && !string.IsNullOrWhiteSpace(message.path))
                         {
                             OpenRegedit(message.path.Trim());
+                            ShowSuccessNotification();
                             SendResponseToBrowser("{\"status\": \"ok\"}");
                         }
                     }
@@ -77,6 +79,31 @@ namespace ORK
             };
 
             Process.Start(startInfo);
+        }
+
+        static void ShowSuccessNotification()
+        {
+            try
+            {
+                string iconPath = Path.Combine(AppContext.BaseDirectory, "ork-icon.png");
+
+                var builder = new ToastContentBuilder()
+                    .AddText("ARGGGGGGG!")
+                    .AddText("Regedit opened successfully!");
+
+                if (File.Exists(iconPath))
+                {
+                    builder.AddAppLogoOverride(
+                        new Uri("file:///" + iconPath.Replace('\\', '/')),
+                        ToastGenericAppLogoCrop.Circle);
+                }
+
+                builder.Show();
+            }
+            catch
+            {
+                // Si el toast no se puede mostrar, no romper el host
+            }
         }
 
         static void SendResponseToBrowser(string message)
