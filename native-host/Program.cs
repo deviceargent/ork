@@ -57,7 +57,7 @@ namespace ORK
                         }
                     }
                 }
-                catch (Exception ex)
+                catch
                 {
                     // Silencioso: un fallo del host no debe romper el loop ni el pipe con el navegador
                 }
@@ -110,7 +110,7 @@ namespace ORK
                 var notifier = ToastNotificationManagerCompat.CreateToastNotifier();
                 notifier.Show(new ToastNotification(xml));
             }
-            catch (Exception ex)
+            catch
             {
                 // Silencioso: el toast no puede romper el flujo de apertura de regedit
             }
