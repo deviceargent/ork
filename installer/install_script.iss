@@ -19,12 +19,8 @@ WizardStyle=classic light
 
 [Files]
 Source: "com.microsoft.ork.json"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\publish\Ork.deps.json"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\publish\Ork.dll"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\publish\Ork.exe"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\publish\Ork.pdb"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\publish\Ork.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\publish\ork-icon.png"; DestDir: "{app}"; Flags: ignoreversion 
+; Publicamos TODO el publish (incluye dependencias NuGet: toolkit de notificaciones, Win32.Registry, etc.)
+Source: "..\publish\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs 
 
 [Registry]
 Root: HKCU; Subkey: "Software\Google\Chrome\NativeMessagingHosts\com.microsoft.ork"; ValueType: String; ValueData: "{app}\com.microsoft.ork.json"; Flags: uninsdeletekey 
