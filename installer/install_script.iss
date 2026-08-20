@@ -31,7 +31,7 @@ Root: HKCU; Subkey: "Software\Microsoft\Edge\NativeMessagingHosts\com.microsoft.
 
 [Icons]
 ; Shortcut con AUMID: requerido para que los toasts de apps win32 no empaquetadas se muestren
-Name: "{autoprograms}\ORK Registry Jumper"; Filename: "{app}\Ork.exe"; WorkingDir: "{app}"; IconFilename: "{app}\ork-icon.png"; AppUserModelID: "ORK.NativeHost"; Flags: createonlyifdoesntexist 
+Name: "{autoprograms}\ORK Registry Jumper"; Filename: "{app}\Ork.exe"; WorkingDir: "{app}"; IconFilename: "{app}\ork-icon.png"; AppUserModelID: "ORK.NativeHost"; Flags: createonlyiffileexists 
 
 [UninstallDelete]
 Type: dirifempty; Name: "{app}"; 
