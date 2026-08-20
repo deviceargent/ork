@@ -8,7 +8,7 @@
     }
   },
   "hostError": {
-    "message": "未找到 ORK Host。请从以下地址下载并安装 ork.msi：https://github.com/deviceargent/ork/releases/latest",
+    "message": "未找到 ORK Host。请从以下地址下载并安装 ORK_Setup.exe：https://github.com/deviceargent/ork/releases/latest",
     "description": "Error shown when the native host is missing"
   }
 }

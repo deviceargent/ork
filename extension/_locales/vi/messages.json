@@ -8,7 +8,7 @@
     }
   },
   "hostError": {
-    "message": "Không tìm thấy ORK Host. Vui lòng tải và cài đặt ork.msi từ: https://github.com/deviceargent/ork/releases/latest",
+    "message": "Không tìm thấy ORK Host. Vui lòng tải và cài đặt ORK_Setup.exe từ: https://github.com/deviceargent/ork/releases/latest",
     "description": "Error shown when the native host is missing"
   }
 }

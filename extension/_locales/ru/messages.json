@@ -8,7 +8,7 @@
     }
   },
   "hostError": {
-    "message": "ORK Host не найден. Скачайте и установите ork.msi с сайта: https://github.com/deviceargent/ork/releases/latest",
+    "message": "ORK Host не найден. Скачайте и установите ORK_Setup.exe с сайта: https://github.com/deviceargent/ork/releases/latest",
     "description": "Error shown when the native host is missing"
   }
 }
