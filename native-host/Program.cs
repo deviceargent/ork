@@ -20,6 +20,9 @@ namespace ORK
 
         static void Main(string[] args)
         {
+            string logPath = Path.Combine(Path.GetTempPath(), "ork-toast.log");
+            File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] HOST STARTED, PID={Environment.ProcessId}\n");
+
             _setmode(STDIN_FILENO, _O_BINARY);
             _setmode(STDOUT_FILENO, _O_BINARY);
 
@@ -49,17 +52,19 @@ namespace ORK
                         }
 
                         var message = JsonSerializer.Deserialize<RegistryMessage>(buffer);
+                        File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] MSG: len={length} path={(message?.path ?? "(null)")}\n");
                         if (message?.path != null && !string.IsNullOrWhiteSpace(message.path))
                         {
                             OpenRegedit(message.path.Trim());
                             ShowSuccessNotification();
                             SendResponseToBrowser("{\"status\": \"ok\"}");
+                            File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] RESPONSE SENT\n");
                         }
                     }
                 }
-                catch
+                catch (Exception ex)
                 {
-                    // Evita popups de error en el host nativo
+                    File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] MAIN ERROR: {ex}\n");
                 }
             }
         }
