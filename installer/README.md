@@ -1,29 +1,22 @@
-# ORK Installer (pre-release/testing)
+# ORK Installer (público)
 
-Esta rama **`pre-release-testing`** contiene el instalador del host nativo configurado para la
-extensión **desempaquetada** (pruebas locales), cuyo ID es:
+Instalador del host nativo de **ORK - Registry Jumper**, configurado para la extensión **publicada**
+en la Chrome Web Store, cuyo ID es:
 
 ```
-chrome-extension://lallfogojflmbimobkadfhhaajiiakin/
+chrome-extension://nipiloljmfhmfbaliciokjeakghfggkj/
 ```
 
-- `com.microsoft.ork.json` — manifest del host nativo apuntando al ID de extensión local de testing.
+- `com.microsoft.ork.json` — manifest del host nativo apuntando al ID de la extensión pública.
 - `install_script.iss` — script Inno Setup 6.7.0 para empaquetar el host en `C:\Program Files\ORK`.
 
-## Diferencia con la rama pública (`main`)
+> La rama `pre-release-testing` mantiene una variante con el ID de la extensión desempaquetada local
+> (`lallfogojflmbimobkadfhhaajiiakin`) solo para desarrollo. No publicar ese instalador.
 
-| Rama | allowed_origins | Uso |
-|---|---|---|
-| `main` | `nipiloljmfhmfbaliciokjeakghfggkj` | Extensión publicada en la store (instalador público) |
-| `pre-release-testing` | `lallfogojflmbimobkadfhhaajiiakin` | Extensión desempaquetada en desarrollo |
+## Cómo instalar
 
-> El ID de testing es **arbitrario y puede cambiar** si se vuelve a cargar la extensión. No subir
-> este instalador como público.
-
-## Cómo probar
-
-1. Instalá el `ORK_Setup.exe` del artefacto del workflow (Actions → última corrida → artifact `ORK_Setup`).
-2. Cargá la extensión desempaquetada (`extension/`) en Edge/Chrome.
+1. Descargá `ORK_Setup.exe` desde la release (o desde Actions → última corrida → artifact `ORK_Setup`).
+2. Ejecutalo (instalación en silencio: `ORK_Setup.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART`).
 3. Seleccioná un path de regedit (ej. `HKEY_CURRENT_USER\Software\...`) en cualquier página.
 4. Clic derecho → **ORK - Registry Jumper** → se abre regedit y aparece el toast `ARGGGGGGG!`.
 
@@ -41,3 +34,10 @@ Get-Process -Name Ork -ErrorAction SilentlyContinue | Stop-Process -Force
 ```
 
 Luego correr el setup normalmente (sí sobrescribe: todo `[Files]` usa `Flags: ignoreversion`).
+
+## Seguridad / trazabilidad del binario
+
+La release se genera desde GitHub Actions (workflow `build-installer.yml`): el binario publicado es
+el artefacto de la corrida disparada por el tag de la release. Eso permite verificar el origen:
+**commit → workflow run → binario**. Cualquier binario subido a mano a una release NO debe
+considerarse oficial; el oficial es siempre el artefacto de Actions del tag.

@@ -20,9 +20,6 @@ namespace ORK
 
         static void Main(string[] args)
         {
-            string logPath = Path.Combine(Path.GetTempPath(), "ork-toast.log");
-            File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] HOST STARTED, PID={Environment.ProcessId}\n");
-
             _setmode(STDIN_FILENO, _O_BINARY);
             _setmode(STDOUT_FILENO, _O_BINARY);
 
@@ -52,19 +49,17 @@ namespace ORK
                         }
 
                         var message = JsonSerializer.Deserialize<RegistryMessage>(buffer);
-                        File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] MSG: len={length} path={(message?.path ?? "(null)")}\n");
                         if (message?.path != null && !string.IsNullOrWhiteSpace(message.path))
                         {
                             OpenRegedit(message.path.Trim());
                             ShowSuccessNotification();
                             SendResponseToBrowser("{\"status\": \"ok\"}");
-                            File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] RESPONSE SENT\n");
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] MAIN ERROR: {ex}\n");
+                    // Silencioso: un fallo del host no debe romper el loop ni el pipe con el navegador
                 }
             }
         }
@@ -89,7 +84,6 @@ namespace ORK
 
         static void ShowSuccessNotification()
         {
-            string logPath = Path.Combine(Path.GetTempPath(), "ork-toast.log");
             try
             {
                 string iconPath = Path.Combine(AppContext.BaseDirectory, "ork-icon.png");
@@ -113,15 +107,12 @@ namespace ORK
                 }
 
                 var xml = builder.GetXml();
-                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] XML: {xml.GetXml()}\n");
-
                 var notifier = ToastNotificationManagerCompat.CreateToastNotifier();
                 notifier.Show(new ToastNotification(xml));
-                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] Show() OK, AUMID={Environment.ProcessId}\n");
             }
             catch (Exception ex)
             {
-                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] ERROR: {ex}\n");
+                // Silencioso: el toast no puede romper el flujo de apertura de regedit
             }
         }
 
