@@ -1,0 +1,9 @@
+{
+  "name": "com.microsoft.ork",
+  "description": "ORK Native Messaging Host - Registry Jumper",
+  "path": "C:\\Program Files\\ORK\\Ork.exe",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://lallfogojflmbimobkadfhhaajiiakin/"
+  ]
+}
