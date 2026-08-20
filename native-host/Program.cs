@@ -88,7 +88,7 @@ namespace ORK
             {
                 string iconPath = Path.Combine(AppContext.BaseDirectory, "ork-icon.png");
 
-                DesktopNotificationManagerCompat.Aumid = "ORK.NativeHost";
+                ToastNotificationManagerCompat.Aumid = "ORK.NativeHost";
 
                 var builder = new ToastContentBuilder()
                     .AddText("ARGGGGGGG!")
@@ -104,9 +104,9 @@ namespace ORK
                 var xml = builder.GetXml();
                 File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] XML: {xml.GetXml()}\n");
 
-                var notifier = DesktopNotificationManagerCompat.CreateToastNotifier();
+                var notifier = ToastNotificationManagerCompat.CreateToastNotifier();
                 notifier.Show(new ToastNotification(xml));
-                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] Show() OK, AUMID={DesktopNotificationManagerCompat.Aumid}\n");
+                File.AppendAllText(logPath, $"[{DateTime.Now:HH:mm:ss}] Show() OK, AUMID={ToastNotificationManagerCompat.Aumid}\n");
             }
             catch (Exception ex)
             {
