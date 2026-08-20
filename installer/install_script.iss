@@ -6,6 +6,7 @@ AppId={{B2977C70-5F33-4138-9D76-CAFE35924825}}
 AppVersion=1.0.0
 AppPublisher=Miguel Okstein
 DefaultDirName={commonpf}\ORK
+UsePreviousAppDir=no
 OutputBaseFilename=ORK_Setup
 Compression=lzma2
 ArchitecturesAllowed=x64compatible
