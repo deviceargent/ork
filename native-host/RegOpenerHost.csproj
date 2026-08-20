@@ -4,6 +4,7 @@
     <TargetFramework>net8.0-windows10.0.17763.0</TargetFramework>
     <RootNamespace>ORK</RootNamespace>
     <AssemblyName>Ork</AssemblyName>
+    <AssemblyTitle>ORK</AssemblyTitle>
     <ApplicationIcon>ork.ico</ApplicationIcon>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
