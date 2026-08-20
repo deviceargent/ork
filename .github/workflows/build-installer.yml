@@ -18,7 +18,7 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Publish native host (win-x64)
-        run: dotnet publish native-host/RegOpenerHost.csproj -c Release -r win-x64 -p:PublishReadyToRun=true
+        run: dotnet publish native-host/RegOpenerHost.csproj -c Release -r win-x64 -p:PublishReadyToRun=true -o publish
 
       - name: Compile installer with Inno Setup
         uses: Minionguyjpro/Inno-Setup-Action@v1.2.2

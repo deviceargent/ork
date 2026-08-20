@@ -18,12 +18,12 @@ WizardStyle=classic light
 
 [Files]
 Source: "com.microsoft.ork.json"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\native-host\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish\Ork.deps.json"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\native-host\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish\Ork.dll"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\native-host\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish\Ork.exe"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\native-host\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish\Ork.pdb"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\native-host\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish\Ork.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion 
-Source: "..\native-host\bin\Release\net8.0-windows10.0.17763.0\win-x64\publish\ork-icon.png"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\publish\Ork.deps.json"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\publish\Ork.dll"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\publish\Ork.exe"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\publish\Ork.pdb"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\publish\Ork.runtimeconfig.json"; DestDir: "{app}"; Flags: ignoreversion 
+Source: "..\publish\ork-icon.png"; DestDir: "{app}"; Flags: ignoreversion 
 
 [Registry]
 Root: HKCU; Subkey: "Software\Google\Chrome\NativeMessagingHosts\com.microsoft.ork"; ValueType: String; ValueData: "{app}\com.microsoft.ork.json"; Flags: uninsdeletekey 
