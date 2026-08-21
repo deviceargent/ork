@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "ORK - Registry Jumper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "default_locale": "en",
   "permissions": [
     "contextMenus",
